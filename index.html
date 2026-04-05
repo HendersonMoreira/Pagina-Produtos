@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Tech - Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header animado -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="header-content">
+            <h1><i class="fas fa-mobile-alt"></i> Loja Tech Premium</h1>
+            <p>Os melhores acessorios para seu smartphone com entrega rápida e preços imbatíveis</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Filtros -->
+        <div class="filters">
+            <button class="filter-btn active" data-cat="all">Todos</button>
+            <button class="filter-btn" data-cat="cases">Capas</button>
+            <button class="filter-btn" data-cat="cables">Cabos</button>
+            <button class="filter-btn" data-cat="chargers">Carregadores</button>
+            <button class="filter-btn" data-cat="cups">Copos</button>
+            <button class="filter-btn" data-cat="bottles">Garrafas</button>
+            <button class="filter-btn" data-cat="stands">Tripes</button>
+            <button class="filter-btn" data-cat="audio">Fones</button>
+        </div>
+
+        <!-- Grid de produtos -->
+        <div class="products-grid" id="productsGrid">
+
+            <!-- Card: Capas -->
+            <article class="product-card" data-category="cases"
+                     data-product="Capas para Celular" data-price="29.90"
+                     data-phone="5521994249025" data-variant-key="cases"
+                     data-variant-filter="iPhone 12 Pro Max,iPhone 11">
+                <div class="product-img-wrap">
+                    <img src="https://m.media-amazon.com/images/I/61TwLp0WhKL._AC_UF1000,1000_QL80_.jpg" alt="Capa" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">proteção Premium</div>
+                    <h2 class="product-name">Capas para Celular</h2>
+                    <p class="product-description">Proteção de alta qualidade com interior em microfibra. Disponível para diversos modelos.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-mobile"></i> Modelo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Capa iPhone 14 Pro -->
+            <article class="product-card" data-category="cases"
+                     data-product="Capa iPhone 14 Pro" data-price="39.90"
+                     data-phone="5521994249025" data-variant-key="cases"
+                     data-variant-filter="iPhone 14 Pro"
+                     data-default-model="iPhone 14 Pro" data-default-color="Variadas">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop" alt="Capa iPhone 14 Pro" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Linha iPhone</div>
+                    <h2 class="product-name">Capa iPhone 14 Pro</h2>
+                    <p class="product-description">Modelo premium inspirado na sua galeria, acabamento moderno e proteÃ§Ã£o reforÃ§ada.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-mobile"></i> Modelo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Cabo Inova -->
+            <article class="product-card" data-category="cables"
+                     data-product="Cabo Inova para iPhone" data-price="29.90"
+                     data-phone="5521994249025" data-variant-filter="Cabo Inova"
+                     data-default-model="Lightning" data-default-color="Branco">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1616578273577-8f222a0f2745?w=400&h=400&fit=crop" alt="Cabo Inova para iPhone" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Cabos</div>
+                    <h2 class="product-name">Cabo Inova para iPhone</h2>
+                    <p class="product-description">Nome adicionado com base na sua imagem: cabo resistente para carga e dados.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-plug"></i> Tipo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Cabo Kaidi -->
+            <article class="product-card" data-category="cables"
+                     data-product="Cabo Kaidi valor 30" data-price="30.00"
+                     data-phone="5521994249025" data-variant-filter="Cabo Kaidi"
+                     data-default-model="USB-C" data-default-color="Preto">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop" alt="Cabo Kaidi" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Cabos</div>
+                    <h2 class="product-name">Cabo Kaidi valor 30</h2>
+                    <p class="product-description">Produto da lista da imagem, com foco em durabilidade e carregamento estÃ¡vel.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-plug"></i> Tipo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Carregadores -->
+            <article class="product-card" data-category="chargers"
+                     data-product="Carregadores" data-price="49.90"
+                     data-phone="5521994249025" data-variant-key="carregadores"
+                     data-variant-filter="Carregador">
+                <div class="product-img-wrap">
+                    <img src="https://img.freepik.com/fotos-gratis/carregador-e-cabo-usb-tipo-c-sobre-fundo-branco-isolado_58702-4501.jpg?semt=ais_user_personalization&w=740&q=80" alt="Carregador" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Carregamento RÃ¡pido</div>
+                    <h2 class="product-name">Carregadores</h2>
+                    <p class="product-description">Carregamento ultra-rÃ¡pido com tecnologia Power Delivery. Cabo incluso.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-bolt"></i> PotÃªncia</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-plug"></i> VersÃ£o</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Fones de Ouvido -->
+            <article class="product-card" data-category="audio"
+                     data-product="Fones de Ouvido" data-price="79.90"
+                     data-phone="5521994249025" data-variant-key="fones"
+                     data-variant-filter="Fone">
+                <div class="product-img-wrap">
+                    <img src="https://fujisom.com.br/uploads/produto_fotos/20240216102251_fonedeouvidodylande225inear2drivebranco.jpg" alt="Fone" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Ãudio Premium</div>
+                    <h2 class="product-name">Fones de Ouvido</h2>
+                    <p class="product-description">Som cristalino com cancelamento de ruÃ­do e 30h de bateria.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-headphones"></i> Modelo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Copo Stanley -->
+            <article class="product-card" data-category="cups"
+                     data-product="Copo Stanley" data-price="69.90"
+                     data-phone="5521994249025" data-variant-filter="Copo Stanley"
+                     data-default-model="473 ml" data-default-color="Misto">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400&h=400&fit=crop" alt="Copo Stanley" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Copos</div>
+                    <h2 class="product-name">Copo Stanley</h2>
+                    <p class="product-description">Item baseado no texto da imagem, ideal para bebidas geladas por mais tempo.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Capacidade</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Copo Stanley Pequeno -->
+            <article class="product-card" data-category="cups"
+                     data-product="Copo Stanley pequeno" data-price="59.90"
+                     data-phone="5521994249025" data-variant-filter="Copo Stanley pequeno"
+                     data-default-model="350 ml" data-default-color="Misto">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=400&fit=crop" alt="Copo Stanley pequeno" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Copos</div>
+                    <h2 class="product-name">Copo Stanley Pequeno</h2>
+                    <p class="product-description">VersÃ£o compacta para uso diÃ¡rio, conforme os nomes da sua galeria.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Capacidade</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Garrafa com Glitter -->
+            <article class="product-card" data-category="bottles"
+                     data-product="Garrafa com glitter" data-price="79.90"
+                     data-phone="5521994249025" data-variant-filter="Garrafa com glitter"
+                     data-default-model="750 ml" data-default-color="Sortidas">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1532634896-26909d0d4b6f?w=400&h=400&fit=crop" alt="Garrafa com glitter" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Garrafas</div>
+                    <h2 class="product-name">Garrafa com Glitter</h2>
+                    <p class="product-description">Nome adicionado igual ao da imagem: visual brilhante e acabamento premium.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Capacidade</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Garrafa com Tampa -->
+            <article class="product-card" data-category="bottles"
+                     data-product="Garrafa com tampa" data-price="69.90"
+                     data-phone="5521994249025" data-variant-filter="Garrafa com tampa"
+                     data-default-model="650 ml" data-default-color="Sortidas">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop" alt="Garrafa com tampa" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Garrafas</div>
+                    <h2 class="product-name">Garrafa com Tampa</h2>
+                    <p class="product-description">Produto da lista da imagem com tampa de vedaÃ§Ã£o para transporte diÃ¡rio.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Capacidade</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Garrafa de Plastico -->
+            <article class="product-card" data-category="bottles"
+                     data-product="Garrafa de plastico" data-price="39.90"
+                     data-phone="5521994249025" data-variant-filter="Garrafa de plastico"
+                     data-default-model="700 ml" data-default-color="Sortidas">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1564415315949-7a0c4c73ffd6?w=400&h=400&fit=crop" alt="Garrafa de plastico" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Garrafas</div>
+                    <h2 class="product-name">Garrafa de Plastico</h2>
+                    <p class="product-description">Modelo leve para dia a dia, com cores variadas como aparece nos nomes da galeria.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Capacidade</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Garrafa dourada e preta -->
+            <article class="product-card" data-category="bottles"
+                     data-product="Garrafa dourada e preta" data-price="89.90"
+                     data-phone="5521994249025" data-variant-filter="Garrafa dourada e preta"
+                     data-default-model="Termica" data-default-color="Dourada e Preta">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1523362289600-a9f3f6d0f1ab?w=400&h=400&fit=crop" alt="Garrafa dourada e preta" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Garrafas</div>
+                    <h2 class="product-name">Garrafa Dourada e Preta</h2>
+                    <p class="product-description">Acabamento sofisticado conforme o item da sua imagem, com visual elegante.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-ruler"></i> Modelo</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Tripe Inova -->
+            <article class="product-card" data-category="stands"
+                     data-product="Tripe Inova" data-price="59.90"
+                     data-phone="5521994249025" data-variant-filter="Tripe Inova"
+                     data-default-model="Universal" data-default-color="Preto">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1620100088122-335f753f0baf?w=400&h=400&fit=crop" alt="Tripe Inova" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Tripes</div>
+                    <h2 class="product-name">Tripe Inova</h2>
+                    <p class="product-description">Suporte para gravacao e fotos com celular, inspirado no item tripe inova da imagem.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-arrows-alt-v"></i> Altura</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-palette"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card: Turbo PD 60W -->
+            <article class="product-card" data-category="chargers"
+                     data-product="Turbo PD 60W" data-price="79.90"
+                     data-phone="5521994249025" data-variant-key="carregadores"
+                     data-variant-filter="Turbo PD 60W"
+                     data-default-model="PD 60W" data-default-color="Branco/Preto">
+                <div class="product-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=400&h=400&fit=crop" alt="Turbo PD 60W" class="product-image">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Carregamento RÃ¡pido</div>
+                    <h2 class="product-name">Turbo PD 60W</h2>
+                    <p class="product-description">Carregador de alta potÃªncia adicionado conforme o nome exibido na sua imagem.</p>
+                    <div class="price-row">
+                        <span class="product-price">R$ --</span>
+                        <span class="old-price">R$ --</span>
+                    </div>
+                    <div class="selectors">
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-bolt"></i> Potencia</span>
+                            <select class="select-model"></select>
+                        </label>
+                        <label>
+                            <span class="selector-label-text"><i class="fas fa-plug"></i> Cor</span>
+                            <select class="select-color"></select>
+                        </label>
+                    </div>
+                    <button class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Toast de notificaÃ§Ã£o -->
+    <div class="toast" id="toast">
+        <div class="toast-icon"><i class="fab fa-whatsapp"></i></div>
+        <div>
+            <strong>Redirecionando...</strong>
+            <p style="font-size:0.85rem;opacity:0.85;margin-top:2px;">Abrindo WhatsApp</p>
+        </div>
+    </div>
+
+    <script src="variants.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

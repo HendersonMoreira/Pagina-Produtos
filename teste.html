@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Tech - Acessórios Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #25d366;
+            --primary-dark: #128c7e;
+            --secondary: #075e54;
+            --accent: #34b7f1;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient-1: #667eea;
+            --gradient-2: #764ba2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header Animado */
+        header {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        .shape:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; left: 30%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; left: 50%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 100px; height: 100px; left: 70%; animation-delay: 6s; }
+        .shape:nth-child(5) { width: 90px; height: 90px; left: 90%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .header-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1400px;
+            margin: -80px auto 0;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Filtros */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 30px;
+            border: none;
+            background: white;
+            color: var(--dark);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Grid de Produtos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Card de Produto */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            transform: translateY(0);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view {
+            background: white;
+            color: var(--dark);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .quick-view {
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--gradient-1);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .old-price {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+
+        /* Opções de Produto */
+        .product-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-label {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .option-select {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 45px;
+        }
+
+        .option-select:focus {
+            outline: none;
+            border-color: var(--gradient-1);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Cores em círculos */
+        .color-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-circle:hover, .color-circle.active {
+            border-color: var(--dark);
+            transform: scale(1.2);
+        }
+
+        .color-circle.active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.4rem;
+            animation: shake 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        /* Seção de Benefícios */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                margin-top: -40px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="header-content">
+            <h1><i class="fas fa-mobile-alt"></i> Loja Tech Premium</h1>
+            <p>Os melhores acessórios para seu smartphone com entrega rápida e preços imbatíveis</p>
+        </div>
+    </header>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Filtros -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('cases')">Capas</button>
+            <button class="filter-btn" onclick="filterProducts('chargers')">Carregadores</button>
+            <button class="filter-btn" onclick="filterProducts('audio')">Áudio</button>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Produto 1: Capas -->
+            <div class="product-card" data-category="cases">
+                <span class="product-badge">MAIS VENDIDO</span>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=400&h=400&fit=crop" alt="Capa Premium">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Proteção Premium</div>
+                    <h3 class="product-title">Capa Silicone Premium</h3>
+                    <p class="product-description">Proteção de alta qualidade com interior em microfibra. Disponível para diversos modelos.</p>
+                    <div class="product-price">
+                        R$ 29,90
+                        <span class="old-price">R$ 49,90</span>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-mobile"></i> Modelo</label>
+                            <select class="option-select" id="modelo-capa">
+                                <option>iPhone 12 Pro Max</option>
+                                <option>iPhone 13 Pro Max</option>
+                                <option>iPhone 14 Pro Max</option>
+                                <option>iPhone 15 Pro Max</option>
+                                <option>Samsung S23 Ultra</option>
+                                <option>Samsung S24 Ultra</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-palette"></i> Cor</label>
+                            <div class="color-options">
+                                <div class="color-circle active" style="background: #3b82f6;" onclick="selectColor(this, 'Azul')" title="Azul"></div>
+                                <div class="color-circle" style="background: #ef4444;" onclick="selectColor(this, 'Vermelho')" title="Vermelho"></div>
+                                <div class="color-circle" style="background: #10b981;" onclick="selectColor(this, 'Verde')" title="Verde"></div>
+                                <div class="color-circle" style="background: #f59e0b;" onclick="selectColor(this, 'Amarelo')" title="Amarelo"></div>
+                                <div class="color-circle" style="background: #1f2937;" onclick="selectColor(this, 'Preto')" title="Preto"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="whatsapp-btn" onclick="comprarWhatsApp('Capa Silicone Premium', 'modelo-capa', 'Azul', '29.90')">
+                        <i class="fab fa-whatsapp"></i>
+                        Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 2: Carregadores -->
+            <div class="product-card" data-category="chargers">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=400&fit=crop" alt="Carregador Turbo">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Carregamento Rápido</div>
+                    <h3 class="product-title">Carregador Turbo 20W</h3>
+                    <p class="product-description">Carregamento ultra-rápido com tecnologia Power Delivery. Cabo incluso.</p>
+                    <div class="product-price">
+                        R$ 49,90
+                        <span class="old-price">R$ 79,90</span>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-bolt"></i> Potência</label>
+                            <select class="option-select" id="potencia-carregador">
+                                <option>Carregador USB-C 20W</option>
+                                <option>Carregador USB-C 30W (+ R$ 20,00)</option>
+                                <option>Carregador USB-C 65W (+ R$ 50,00)</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-plug"></i> Versão</label>
+                            <select class="option-select" id="versao-carregador">
+                                <option>Branco</option>
+                                <option>Preto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="whatsapp-btn" onclick="comprarWhatsApp('Carregador Turbo 20W', 'potencia-carregador', 'Branco', '49.90')">
+                        <i class="fab fa-whatsapp"></i>
+                        Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 3: Fones -->
+            <div class="product-card" data-category="audio">
+                <span class="product-badge">NOVO</span>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop" alt="Fone Bluetooth">
+                    <div class="product-overlay">
+                        <span class="quick-view"><i class="fas fa-eye"></i> Visualizar</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Áudio Premium</div>
+                    <h3 class="product-title">Fone Bluetooth Pro</h3>
+                    <p class="product-description">Som cristalino com cancelamento de ruído e 30h de bateria.</p>
+                    <div class="product-price">
+                        R$ 79,90
+                        <span class="old-price">R$ 129,90</span>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-headphones"></i> Modelo</label>
+                            <select class="option-select" id="modelo-fone">
+                                <option>Fone In-Ear</option>
+                                <option>Fone Over-Ear (+ R$ 30,00)</option>
+                                <option>Fone Sport Resistente à Água (+ R$ 20,00)</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label class="option-label"><i class="fas fa-palette"></i> Cor</label>
+                            <div class="color-options">
+                                <div class="color-circle active" style="background: #ffffff; border: 2px solid #ddd;" onclick="selectColor(this, 'Branco')" title="Branco"></div>
+                                <div class="color-circle" style="background: #1f2937;" onclick="selectColor(this, 'Preto')" title="Preto"></div>
+                                <div class="color-circle" style="background: #ec4899;" onclick="selectColor(this, 'Rosa')" title="Rosa"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="whatsapp-btn" onclick="comprarWhatsApp('Fone Bluetooth Pro', 'modelo-fone', 'Branco', '79.90')">
+                        <i class="fab fa-whatsapp"></i>
+                        Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefícios -->
+        <div class="benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h4 class="benefit-title">Entrega Rápida</h4>
+                <p class="benefit-text">Enviamos para todo o Brasil em até 24h após a confirmação do pedido</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="benefit-title">Garantia de 90 Dias</h4>
+                <p class="benefit-text">Todos os produtos possuem garantia contra defeitos de fabricação</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h4 class="benefit-title">Troca Fácil</h4>
+                <p class="benefit-text">Não gostou? Troque em até 7 dias após o recebimento</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h4 class="benefit-title">Pagamento Seguro</h4>
+                <p class="benefit-text">Pagamento na entrega ou via PIX com total segurança</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Loja Tech Premium</h3>
+            <p>Seu smartphone merece o melhor</p>
+            <div class="social-links">
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p style="opacity: 0.7; margin-top: 20px;">&copy; 2024 Loja Tech Premium. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon"><i class="fab fa-whatsapp"></i></div>
+        <div>
+            <strong>Redirecionando...</strong>
+            <p style="font-size: 0.9rem; opacity: 0.9;">Abrindo WhatsApp</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuração - SUBSTITUA PELO SEU NÚMERO DO WHATSAPP
+        const WHATSAPP_NUMBER = '5511999999999'; // Formato: 55 + DDD + Número
+        
+        // Selecionar cor
+        function selectColor(element, colorName) {
+            const parent = element.parentElement;
+            parent.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+            element.dataset.selectedColor = colorName;
+        }
+
+        // Filtrar produtos
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Comprar via WhatsApp
+        function comprarWhatsApp(productName, selectId, defaultColor, price) {
+            const select = document.getElementById(selectId);
+            const modelo = select ? select.value : '';
+            
+            // Pegar a cor selecionada do card atual
+            const card = event.target.closest('.product-card');
+            const colorCircle = card.querySelector('.color-circle.active');
+            const cor = colorCircle ? (colorCircle.dataset.selectedColor || defaultColor) : defaultColor;
+            
+            // Criar mensagem
+            const mensagem = `Olá! Gostaria de fazer um pedido:\n\n` +
+                           `📱 *Produto:* ${productName}\n` +
+                           `🔧 *Modelo/Versão:* ${modelo}\n` +
+                           `🎨 *Cor:* ${cor}\n` +
+                           `💰 *Preço:* R$ ${price}\n\n` +
+                           `Pode confirmar a disponibilidade?`;
+            
+            // Codificar mensagem para URL
+            const mensagemEncoded = encodeURIComponent(mensagem);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensagemEncoded}`;
+            
+            // Mostrar toast
+            showToast();
+            
+            // Abrir WhatsApp após breve delay
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 800);
+        }
+
+        // Mostrar notificação
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos
+        document.querySelectorAll('.product-card, .benefit-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Efeito parallax no header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            header.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
