@@ -82,8 +82,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
 				const img = card.querySelector('.product-image')
 				if(img && v.image) img.src = v.image
 				const priceEl = card.querySelector('.product-price')
-				if(priceEl && v.price) priceEl.textContent = 'R$ ' + v.price.replace('.', ',')
-				if(v.price) card.dataset.price = v.price
+				if(priceEl){
+					if(v.price){
+						priceEl.textContent = 'R$ ' + v.price.replace('.', ',')
+						card.dataset.price = v.price
+					} else {
+						priceEl.textContent = 'A combinar'
+						card.dataset.price = 'A combinar'
+					}
+				}
 				card.dataset.product = v.label || `${card.querySelector('.product-name')?.textContent} - ${model} ${color}`
 			}
 		}
@@ -110,7 +117,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		if(!btn) return
 		btn.addEventListener('click', ()=>{
 			const product = card.dataset.product || card.querySelector('.product-name')?.textContent || ''
-			const price = card.dataset.price || card.querySelector('.product-price')?.textContent || ''
+			const rawPrice = card.dataset.price || card.querySelector('.product-price')?.textContent || ''
+			const priceText = String(rawPrice).trim()
+			const hasNumericPrice = /^[0-9]+([\.,][0-9]{1,2})?$/.test(priceText)
+			const priceLine = hasNumericPrice ? ` - R$ ${priceText}` : ` - ${priceText || 'A combinar'}`
 			const phoneRaw = card.dataset.phone || ''
 			const phone = phoneRaw.replace(/[^0-9]/g,'')
 			if(!phone){
@@ -118,7 +128,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 				return
 			}
 			showToast()
-			const message = `Olá! Quero encomendar: ${product} - R$ ${price}`
+			const message = `Olá! Quero encomendar: ${product}${priceLine}`
 			const encoded = encodeURIComponent(message)
 			const url = `https://wa.me/${phone}?text=${encoded}`
 			setTimeout(() => window.open(url, '_blank'), 800)
