@@ -46,7 +46,7 @@ window.productVariants = {
     },
     "Turbo PD 60W|Branco": {
         "image": "https://i.postimg.cc/zfHbSqqy/turbo-pd-60w.jpg",
-        "price": "89.90",
+        "price": "30.00",
         "label": "Turbo PD 60W"
     },
     "Power Bank Turbo|Branco": {
