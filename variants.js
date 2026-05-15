@@ -206,7 +206,7 @@ window.productVariants = {
     },
     "Relogio|A combinar": {
         "image": "https://i.postimg.cc/pLP38G8w/relogio-valor-a-combinar.jpg",
-        "price": "",
+        "price": "200.00",
         "label": "Relogio"
     }
 };
