@@ -1,4 +1,5 @@
 window.productVariants = {
+    // Capas para celular
     "iPhone 12 Pro Max|Variadas": {
         "image": "https://i.postimg.cc/4N9PJ0Fb/4-capa-iphone-separar.jpg",
         "price": "49.90",
@@ -6,24 +7,41 @@ window.productVariants = {
     },
     "iPhone 14 Pro|Variadas": {
         "image": "https://i.postimg.cc/wv5sPr5W/capa-iphone-14-pro.jpg",
-        "price": "59.90",
+        "price": "49.90",
         "label": "Capa iPhone 14 Pro"
     },
     "Fashion Case Rosa|iPhone Variados": {
         "image": "https://i.postimg.cc/x80bSPgW/capa-rosa-case-fashior.jpg",
-        "price": "50.00",
+        "price": "49.90",
         "label": "Fashion Case Rosa"
     },
     "Capa com fio|Universal": {
         "image": "https://i.postimg.cc/Kcn9N7m6/capa-de-celular-com-fio-junto.jpg",
-        "price": "55.00",
+        "price": "30.00",
         "label": "Capa de celular com fio"
     },
     "Fashion Case Premium|Variadas": {
         "image": "https://i.postimg.cc/B6fftx5n/capa-de-celular-fashion-case-50-00.jpg",
-        "price": "50.00",
+        "price": "60,00",
         "label": "Fashion Case Premium"
     },
+    "Capa para iPhone sob encomenda|Sob encomenda": {
+        "image": "https://i.postimg.cc/P5TrfYGM/Capa-para-o-seu-i-Phone-so-por-encomenda.jpg",
+        "price": "",
+        "label": "Capa para iPhone sob encomenda"
+    },
+    "Capa para iPhone varias cores|Variadas": {
+        "image": "https://i.postimg.cc/sgmfMxsZ/Capa-para-seu-i-Phone-vares-cores-valor-35-00.jpg",
+        "price": "35.00",
+        "label": "Capa para iPhone varias cores"
+    },
+    "Pelicula para celular|A combinar": {
+        "image": "https://i.postimg.cc/SNrbrP5L/Variedade-de-pelicula-para-todos-os-tipos-de-aparelho-celular-preco-a-combinar.jpg",
+        "price": "",
+        "label": "Pelicula para celular"
+    },
+
+    // Cabos e carregadores
     "Cabo Inova Lightning|Branco": {
         "image": "https://i.postimg.cc/HsrZr2BK/cabo-inova-para-iphone-30-00.jpg",
         "price": "30.00",
@@ -49,6 +67,28 @@ window.productVariants = {
         "price": "30.00",
         "label": "Turbo PD 60W"
     },
+    "Carregador Kaidi Turbo PD 20W|Branco": {
+        "image": "https://i.postimg.cc/zGcSYJ6D/Carregador-KAIDI-turbo-PD-20w-valor-60-00.jpg",
+        "price": "60.00",
+        "label": "Carregador Kaidi Turbo PD 20W"
+    },
+    "Carregador para iPhone|Branco": {
+        "image": "https://i.postimg.cc/44Q6Nvqj/Carregador-para-o-seu-i-Phone-valor-70-00.jpg",
+        "price": "70.00",
+        "label": "Carregador para iPhone"
+    },
+    "Carregador Kaidi para iPhone|Branco": {
+        "image": "https://i.postimg.cc/9fNWBkDv/Carregador-kadi-para-seu-i-Phone-valor-60-00.jpg",
+        "price": "60.00",
+        "label": "Carregador Kaidi para iPhone"
+    },
+    "Corda para celular|Variadas": {
+        "image": "https://i.postimg.cc/7LckzTcY/Corda-para-o-seu-aparelho-celular-variedades-valor-30-00.jpg",
+        "price": "30.00",
+        "label": "Corda para celular"
+    },
+
+    // Power banks e carregadores portateis
     "Power Bank Turbo|Branco": {
         "image": "https://i.postimg.cc/HxbS4nQ7/power-bank-140-00.jpg",
         "price": "140.00",
@@ -61,33 +101,62 @@ window.productVariants = {
     },
     "Carregador portatil|Preto": {
         "image": "https://i.postimg.cc/gkJ74XrW/Carregador-portatil-140-00.jpg",
-        "price": "140.00",
+        "price": "120.00",
         "label": "Carregador portatil"
+    },
+    "Carregador portatil Golde 20000|Preto ou Branco": {
+        "image": "https://i.postimg.cc/13swx8vR/Carregador-portatil-Golde-20000-cor-preto-ou-branco-valor-140-00.jpg",
+        "price": "140.00",
+        "label": "Carregador portatil Golde 20000"
     },
     "Power Bank 10000mAh|Preto": {
         "image": "https://i.postimg.cc/C1SxBTY9/power-bank-10000-99-99.jpg",
         "price": "99.99",
         "label": "Power Bank 10000mAh"
     },
+
+    // Fones de ouvido
     "Fone gatinho|Rosa": {
         "image": "https://i.postimg.cc/t4sZpjCF/fone-de-ouvindo-gatinho-70-00.jpg",
         "price": "70.00",
         "label": "Fone de ouvido gatinho"
     },
+    "Fone JBL sem fio|Preto": {
+        "image": "https://i.postimg.cc/FFMMNvtw/Fone-JBL-sem-fio-valor-90-00.jpg",
+        "price": "90.00",
+        "label": "Fone JBL sem fio"
+    },
+    "Fone KAIDI KD-790|Preto": {
+        "image": "https://i.postimg.cc/8Pg0xbW2/Fone-KAIDI-KD-790-valor-80-00.jpg",
+        "price": "80.00",
+        "label": "Fone KAIDI KD-790"
+    },
+    "Fone sem fio|Preto": {
+        "image": "https://i.postimg.cc/rmrLNwXS/Fone-sem-fio-valor-60-00.jpg",
+        "price": "60.00",
+        "label": "Fone sem fio"
+    },
+    "Caixa de som JBL|Preta": {
+        "image": "https://i.postimg.cc/7LRzdmCb/Caixa-de-som-som-JBL-valor-120-00.jpg",
+        "price": "120.00",
+        "label": "Caixa de som JBL"
+    },
+
+    // Copos e canecas
     "Copo Stanley com canudo|Misto": {
         "image": "https://i.postimg.cc/TYN5Zgbr/copo-stanley-com-canudo.jpg",
-        "price": "69.90",
+        "price": "60.00",
         "label": "Copo Stanley com canudo"
     },
     "Copo Stanley pequeno|Misto": {
         "image": "https://i.postimg.cc/3xP4whnX/copo-stanley-pequeno-2.jpg",
-        "price": "45.00",
+        "price": "35.00",
         "label": "Copo Stanley pequeno"
     },
-    "Copo Stanley pequeno 350ml|Colorido": {
+    "Base térmica|Colorido": {
         "image": "https://i.postimg.cc/2SPb5Y29/copo-stanley-pequeno-35-00.jpg",
-        "price": "35.00",
-        "label": "Copo Stanley pequeno 350ml"
+        "price": "25.00",
+        "label": "Base térmica"
     },
     "Copo Stanley tradicional|Misto": {
         "image": "https://i.postimg.cc/gJpxvD9b/copo-stanley.jpg",
@@ -109,6 +178,23 @@ window.productVariants = {
         "price": "35.00",
         "label": "Copo com temperatura"
     },
+    "Copo do seu time favorito|Tematico": {
+        "image": "https://i.postimg.cc/JzrMC8ZR/Copo-do-seu-time-favorito-valor-40-00.jpg",
+        "price": "40.00",
+        "label": "Copo do seu time favorito"
+    },
+    "Copo Stanley grande|Sortido": {
+        "image": "https://i.postimg.cc/6pMw9PfV/Copos-da-marca-STANLEY-grande-40-00-pequeno-30-00.jpg",
+        "price": "40.00",
+        "label": "Copo Stanley grande"
+    },
+    "Copo Stanley pequeno promocional|Sortido": {
+        "image": "https://i.postimg.cc/6pMw9PfV/Copos-da-marca-STANLEY-grande-40-00-pequeno-30-00.jpg",
+        "price": "30.00",
+        "label": "Copo Stanley pequeno promocional"
+    },
+
+    // Garrafas
     "Garrafa com glitter Stanley|Sortidas": {
         "image": "https://i.postimg.cc/ZRLCjdZ1/garrafa-com-glitter-stanley.jpg",
         "price": "79.90",
@@ -161,7 +247,7 @@ window.productVariants = {
     },
     "Garrafa de Stanley|Inox": {
         "image": "https://i.postimg.cc/RZDJHW57/garrafa-de-stanley.jpg",
-        "price": "85.00",
+        "price": "60.00",
         "label": "Garrafa de Stanley"
     },
     "Garrafa dourada e preta|Premium": {
@@ -191,9 +277,26 @@ window.productVariants = {
     },
     "Garrafa de time|Tematica": {
         "image": "https://i.postimg.cc/N032MPPM/garrafa-de-time.jpg",
-        "price": "49.90",
+        "price": "80.00",
         "label": "Garrafa de time"
     },
+    "Garrafa termica 60|Sortida": {
+        "image": "https://i.postimg.cc/C5CT9rKg/Garrafa-termica-valor-60-00.jpg",
+        "price": "60.00",
+        "label": "Garrafa termica 60"
+    },
+    "Garrafa termica 60 (modelo 2)|Sortida": {
+        "image": "https://i.postimg.cc/hvRRyRc2/Garrafa-termica-valor-60-00-2.jpg",
+        "price": "60.00",
+        "label": "Garrafa termica 60 (modelo 2)"
+    },
+    "Garrafa termica Stanley|Sortida": {
+        "image": "https://i.postimg.cc/598VHym1/Garrafas-termicas-Stanley-so-30-00.jpg",
+        "price": "30.00",
+        "label": "Garrafa termica Stanley"
+    },
+
+    // Outros produtos
     "Tripe Inova|Preto": {
         "image": "https://i.postimg.cc/BvPLcJJ3/tripe-inova-39-99.jpg",
         "price": "39.99",
@@ -208,5 +311,10 @@ window.productVariants = {
         "image": "https://i.postimg.cc/pLP38G8w/relogio-valor-a-combinar.jpg",
         "price": "200.00",
         "label": "Relogio"
+    },
+    "Sombrinha|Sortida": {
+        "image": "https://i.postimg.cc/fW8sNpzK/Sombrinha-valor-30-00.jpg",
+        "price": "30.00",
+        "label": "Sombrinha"
     }
 };
