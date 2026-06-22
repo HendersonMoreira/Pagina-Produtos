@@ -141,6 +141,11 @@ window.productVariants = {
         "price": "120.00",
         "label": "Caixa de som JBL"
     },
+    "Caixa de som multimidia|Preta": {
+        "image": "https://i.postimg.cc/vZ0cZMwT/multimidia-caixa.jpg",
+        "price": "160.00",
+        "label": "Caixa de som multimidia"
+    },
 
     // Copos e canecas
     "Copo Stanley com canudo|Misto": {

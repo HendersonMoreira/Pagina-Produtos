@@ -6,6 +6,12 @@
     --dark: #1a1a2e;
     --grad1: #667eea;
     --grad2: #764ba2;
+    --card-surface-a: #e4d6ff;
+    --card-surface-b: #ffd9c8;
+    --card-info-a: #efe2ff;
+    --card-info-b: #ffe8da;
+    --card-border: #c7a9ff;
+    --text-soft: #6f6686;
 }
 
 body {
@@ -136,10 +142,11 @@ header {
 
 /* ===== CARD ===== */
 .product-card {
-    background: white;
+    background: linear-gradient(160deg, var(--card-surface-a) 0%, var(--card-surface-b) 100%);
     border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.13);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 36px rgba(116, 75, 162, 0.2);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
 }
@@ -172,7 +179,7 @@ header {
 /* Área da imagem */
 .product-img-wrap {
     height: 260px;
-    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    background: linear-gradient(135deg, #d8c5ff 0%, #f6cbb8 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +226,10 @@ header {
 .product-card:hover .quick-view { transform: translateY(0); }
 
 /* Info do card */
-.product-info { padding: 22px 24px; }
+.product-info {
+    padding: 22px 24px;
+    background: linear-gradient(180deg, var(--card-info-a) 0%, var(--card-info-b) 100%);
+}
 
 .product-category {
     color: var(--grad1);
@@ -238,7 +248,7 @@ header {
 }
 
 .product-description {
-    color: #999;
+    color: var(--text-soft);
     font-size: 0.88rem;
     margin-bottom: 14px;
     line-height: 1.55;
@@ -280,7 +290,7 @@ header {
 
 .selector-label-text {
     font-size: 0.8rem;
-    color: #666;
+    color: #5f5975;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -289,11 +299,11 @@ header {
 
 .select-model, .select-color {
     padding: 11px 40px 11px 14px;
-    border: 2px solid #ede9fe;
+    border: 2px solid #d5b6ff;
     border-radius: 12px;
     font-size: 0.93rem;
     font-family: inherit;
-    background: white;
+    background: #f5e9ff;
     cursor: pointer;
     transition: all 0.3s ease;
     appearance: none;
@@ -301,7 +311,7 @@ header {
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 18px;
-    color: #333;
+    color: #2e2a3a;
 }
 
 .select-model:focus, .select-color:focus {

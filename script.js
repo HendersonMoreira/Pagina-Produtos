@@ -74,42 +74,60 @@ document.addEventListener('DOMContentLoaded', ()=>{
 			const key = `${model}|${color}`
 			let v = variants[key]
 			if(!v){
-				const k1 = keys.find(k=>k.startsWith(model+'|'))
-				const k2 = keys.find(k=>k.endsWith('|'+color))
-				v = variants[k1] || variants[k2]
+				const modelLower = model?.toLowerCase() || ''
+				const colorLower = color?.toLowerCase() || ''
+				for(let k of keys){
+					const [m, c] = k.split('|')
+					if(m?.toLowerCase() === modelLower && c?.toLowerCase() === colorLower){
+						v = variants[k]
+						break
+					}
+				}
+				if(!v){
+					for(let k of keys){
+						const [m, c] = k.split('|')
+						if(m?.toLowerCase() === modelLower || c?.toLowerCase() === colorLower){
+							v = variants[k]
+							break
+						}
+					}
+				}
 			}
 			if(v){
 				const img = card.querySelector('.product-image')
 				if(img && v.image) img.src = v.image
 				const priceEl = card.querySelector('.product-price')
-				if(priceEl){
-					if(v.price){
-						priceEl.textContent = 'R$ ' + v.price.replace('.', ',')
-						card.dataset.price = v.price
-					} else {
-						priceEl.textContent = 'A combinar'
-						card.dataset.price = 'A combinar'
-					}
+				if(priceEl && v.price){
+					priceEl.textContent = 'R$ ' + v.price.replace('.', ',')
+					card.dataset.price = v.price
 				}
 				card.dataset.product = v.label || `${card.querySelector('.product-name')?.textContent} - ${model} ${color}`
 			}
 		}
 
 		// initial selection
-		if(modelSelect && colorSelect){
-			let initialModel = modelSelect.options[0]?.value
-			let initialColor = colorSelect.options[0]?.value
-			if(keys.length){
-				const parts = keys[0].split('|')
-				initialModel = parts[0] || initialModel
-				initialColor = parts[1] || initialColor
-			}
-			modelSelect.value = initialModel
-			colorSelect.value = initialColor
-			applyVariant(initialModel, initialColor)
+		let initialModel, initialColor
+		if(keys.length){
+			const parts = keys[0].split('|')
+			initialModel = parts[0]
+			initialColor = parts[1]
+		}
+		initialModel = initialModel || modelSelect?.options[0]?.value || card.dataset.defaultModel || 'Consulte no WhatsApp'
+		initialColor = initialColor || colorSelect?.options[0]?.value || card.dataset.defaultColor || 'Sortida'
+		
+		if(modelSelect) modelSelect.value = initialModel
+		if(colorSelect) colorSelect.value = initialColor
+		applyVariant(initialModel, initialColor)
 
-			modelSelect.addEventListener('change', ()=> applyVariant(modelSelect.value, colorSelect.value))
-			colorSelect.addEventListener('change', ()=> applyVariant(modelSelect.value, colorSelect.value))
+		const handleChange = ()=> applyVariant(modelSelect?.value || initialModel, colorSelect?.value || initialColor)
+		
+		if(modelSelect && !modelSelect.hasChangeListener) {
+			modelSelect.addEventListener('change', handleChange)
+			modelSelect.hasChangeListener = true
+		}
+		if(colorSelect && !colorSelect.hasChangeListener) {
+			colorSelect.addEventListener('change', handleChange)
+			colorSelect.hasChangeListener = true
 		}
 
 		// ====== WhatsApp button (inclui a seleção atual no produto) ======
