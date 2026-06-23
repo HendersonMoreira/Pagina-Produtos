@@ -27,7 +27,7 @@ window.productVariants = {
     },
     "Capa para iPhone sob encomenda|Sob encomenda": {
         "image": "https://i.postimg.cc/P5TrfYGM/Capa-para-o-seu-i-Phone-so-por-encomenda.jpg",
-        "price": "",
+        "price": "60.00",
         "label": "Capa para iPhone sob encomenda"
     },
     "Capa para iPhone varias cores|Variadas": {

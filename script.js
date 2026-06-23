@@ -93,15 +93,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
 					}
 				}
 			}
+			const priceEl = card.querySelector('.product-price')
 			if(v){
 				const img = card.querySelector('.product-image')
 				if(img && v.image) img.src = v.image
-				const priceEl = card.querySelector('.product-price')
-				if(priceEl && v.price){
-					priceEl.textContent = 'R$ ' + v.price.replace('.', ',')
-					card.dataset.price = v.price
+
+				const rawPrice = String(v.price ?? '').trim()
+				const normalizedPrice = rawPrice.replace(/\s/g, '').replace(',', '.')
+				const hasNumericPrice = /^[0-9]+(\.[0-9]{1,2})?$/.test(normalizedPrice)
+
+				if(priceEl){
+					if(hasNumericPrice){
+						const parts = normalizedPrice.split('.')
+						const intPart = parts[0]
+						const decimalPart = (parts[1] || '00').padEnd(2, '0').slice(0, 2)
+						priceEl.textContent = `R$ ${intPart},${decimalPart}`
+						card.dataset.price = normalizedPrice
+					} else {
+						priceEl.textContent = 'A combinar'
+						card.dataset.price = 'A combinar'
+					}
 				}
+
 				card.dataset.product = v.label || `${card.querySelector('.product-name')?.textContent} - ${model} ${color}`
+			} else if(priceEl){
+				// Evita manter preço antigo quando não encontra variante compatível.
+				priceEl.textContent = 'A combinar'
+				card.dataset.price = 'A combinar'
 			}
 		}
 
