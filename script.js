@@ -42,8 +42,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		}
 
 		const keys = Object.keys(variants)
-		const models = [...new Set(keys.map(k=>k.split('|')[0]))]
-		const colors = [...new Set(keys.map(k=>k.split('|')[1]))]
+		const parsedVariants = keys.map(key => {
+			const [model = '', color = ''] = key.split('|')
+			return { key, model, color, data: variants[key] }
+		})
+		const models = [...new Set(parsedVariants.map(v => v.model))]
+		const colors = [...new Set(parsedVariants.map(v => v.color))]
 
 		const modelSelect = card.querySelector('.select-model')
 		const colorSelect = card.querySelector('.select-color')
@@ -68,6 +72,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		}
 		if(!colors.length && colorSelect){
 			populate(colorSelect, [card.dataset.defaultColor || 'Sortida'])
+		}
+
+		const getColorsForModel = (model)=>{
+			const modelLower = String(model || '').toLowerCase()
+			return [...new Set(parsedVariants
+				.filter(v => v.model.toLowerCase() === modelLower)
+				.map(v => v.color))]
+		}
+
+		const syncColorOptionsForModel = (model, preferredColor)=>{
+			if(!colorSelect) return preferredColor || ''
+
+			const availableColors = getColorsForModel(model)
+			if(!availableColors.length) return preferredColor || colorSelect.value || ''
+
+			populate(colorSelect, availableColors)
+			const preferredLower = String(preferredColor || '').toLowerCase()
+			const selectedColor = availableColors.find(c => c.toLowerCase() === preferredLower) || availableColors[0]
+			colorSelect.value = selectedColor
+			return selectedColor
 		}
 
 		const applyVariant = (model, color)=>{
@@ -124,27 +148,35 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		}
 
 		// initial selection
-		let initialModel, initialColor
-		if(keys.length){
-			const parts = keys[0].split('|')
-			initialModel = parts[0]
-			initialColor = parts[1]
+		let initialModel = card.dataset.defaultModel || modelSelect?.options[0]?.value || models[0] || 'Consulte no WhatsApp'
+		if(models.length){
+			const initialModelLower = initialModel.toLowerCase()
+			initialModel = models.find(m => m.toLowerCase() === initialModelLower) || models[0]
 		}
-		initialModel = initialModel || modelSelect?.options[0]?.value || card.dataset.defaultModel || 'Consulte no WhatsApp'
-		initialColor = initialColor || colorSelect?.options[0]?.value || card.dataset.defaultColor || 'Sortida'
-		
 		if(modelSelect) modelSelect.value = initialModel
-		if(colorSelect) colorSelect.value = initialColor
+
+		let initialColor = card.dataset.defaultColor || colorSelect?.options[0]?.value || colors[0] || 'Sortida'
+		initialColor = syncColorOptionsForModel(initialModel, initialColor)
 		applyVariant(initialModel, initialColor)
 
-		const handleChange = ()=> applyVariant(modelSelect?.value || initialModel, colorSelect?.value || initialColor)
+		const handleModelChange = ()=>{
+			const selectedModel = modelSelect?.value || initialModel
+			const selectedColor = syncColorOptionsForModel(selectedModel, colorSelect?.value || initialColor)
+			applyVariant(selectedModel, selectedColor)
+		}
+
+		const handleColorChange = ()=>{
+			const selectedModel = modelSelect?.value || initialModel
+			const selectedColor = colorSelect?.value || initialColor
+			applyVariant(selectedModel, selectedColor)
+		}
 		
 		if(modelSelect && !modelSelect.hasChangeListener) {
-			modelSelect.addEventListener('change', handleChange)
+			modelSelect.addEventListener('change', handleModelChange)
 			modelSelect.hasChangeListener = true
 		}
 		if(colorSelect && !colorSelect.hasChangeListener) {
-			colorSelect.addEventListener('change', handleChange)
+			colorSelect.addEventListener('change', handleColorChange)
 			colorSelect.hasChangeListener = true
 		}
 
