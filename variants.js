@@ -300,6 +300,11 @@ window.productVariants = {
         "price": "30.00",
         "label": "Garrafa termica Stanley"
     },
+    "Garrafa termica Stanley|Sortida": {
+        "image": "https://i.postimg.cc/XvxDt2Kj/steley-colotidas.jpg",
+        "price": "40.00",
+        "label": "Garrafa termica Stanley-coloridas"
+    },
 
     // Outros produtos
     "Tripe Inova|Preto": {
