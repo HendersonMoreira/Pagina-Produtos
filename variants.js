@@ -305,6 +305,11 @@ window.productVariants = {
         "price": "40.00",
         "label": "Garrafa termica Stanley-coloridas"
     },
+    "Garrafa-termica|Sortida": {
+        "image": "https://i.postimg.cc/Hk0ZfnJz/Garrafa-termica-valor-60-00.jpg",
+        "price": "60.00",
+        "label": "Garrafa termica varias cores"
+    },
 
     // Outros produtos
     "Tripe Inova|Preto": {
