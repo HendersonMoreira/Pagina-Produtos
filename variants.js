@@ -317,6 +317,11 @@ window.productVariants = {
         "price": "39.99",
         "label": "Tripe Inova"
     },
+    "Suporte para celular|Preto": {
+        "image": "https://i.postimg.cc/Pqmw63CV/Suporte-para-celular-ver-filme-ouve-musica-30-00.jpg",
+        "price": "30.00",
+        "label": "Suporte para celular ver filme e ouvir musica"
+    },
     "Kit de facas|Unico": {
         "image": "https://i.postimg.cc/pLxMCXbN/kit-de-facas-35-00.jpg",
         "price": "35.00",
